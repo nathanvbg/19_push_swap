@@ -22,9 +22,35 @@ void    ft_initlist(int ac, char **av)
         printf("%d\n", a.items[i]);
         i++;
     }
-    printf("\na = %d\nb =%d\n", a.items[a.top], b.items[b.top]);
+    
+    //printf("\na = %d\nb =%d\n", a.items[a.top], b.items[b.top]);
+    //ft_reverse_rotate(&a);
+    i = 0;
+    printf("\n\nA\n\n");
+    ft_sa(&a);
     ft_pb(&a, &b);
-    printf("\na = %d\nb =%d\n", a.items[a.top], b.items[b.top]);
+    ft_pb(&a, &b);
+    ft_pb(&a, &b);
+    //ft_rr(&a, &b);
+    //ft_rrr(&a, &b);
+    ft_sa(&a);
+    ft_pa(&a, &b);
+    ft_pa(&a, &b);
+    ft_pa(&a, &b);
+    i = a.top;
+    while (i >= 0)
+    {
+        printf("%d\n", a.items[i]);
+        i--;
+    }
+    i = b.top;
+    printf("\n\nB\n\n");
+    while (i >= 0)
+    {
+        printf("%d\n", b.items[i]);
+        i--;
+    }
+    //printf("\na = %d\nb =%d\n", a.items[a.top], b.items[b.top]);
     //printf("top = %d\n", a.top);
 
 }
