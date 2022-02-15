@@ -59,7 +59,7 @@ int ft_check(char **av)
         j = 0;
         while (av[i][j])
         {
-            if (j == 0 && av[i][j] == '-')
+            if (j == 0 && (av[i][j] == '-' || av[i][j] == '+'))
                 j++;
             if (!ft_isdigit(av[i][j]))
                 return (0);

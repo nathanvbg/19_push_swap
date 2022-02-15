@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naverbru <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nverbrug <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 08:21:42 by naverbru          #+#    #+#             */
-/*   Updated: 2022/01/13 09:14:06 by nathanvbg        ###   ########.fr       */
+/*   Created: 2019/10/10 13:52:57 by nverbrug          #+#    #+#             */
+/*   Updated: 2022/02/15 16:59:25 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
-	int			sign;
-	long int	nbr;
+	int					sign;
+	unsigned long int	nbr;
 
 	nbr = 0;
 	sign = 1;
@@ -32,5 +32,15 @@ int	ft_atoi(const char *str)
 		nbr = (nbr * 10) + (*str - 48);
 		str++;
 	}
+	if (nbr == 2147483648 && sign == -1)
+		return (nbr * sign);
+	if (nbr > 2147483647)
+		return (0);
 	return (nbr * sign);
+}
+
+#include <stdio.h>
+int main()
+{
+	printf("%d\n", ft_atoi("2147483642344349"));
 }
