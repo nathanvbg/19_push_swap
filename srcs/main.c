@@ -1,65 +1,91 @@
 #include "../include/push_swap.h"
-//#include <stdlib.h>
 
-void    ft_initlist(int ac, char **av)
+void    ft_print(s_list *a, s_list *b)
 {
     int i;
-    s_list a;
-    s_list b;
+    i = a->top;
+
+    while (i >= 0)
+    {
+        printf("%d\n", a->items[i]);
+        i--;
+    }
+    i = b->top;
+    printf("\n\nA\n\n");
+    while (i >= 0)
+    {
+        printf("%d\n", b->items[i]);
+        i--;
+    }
+    printf("\n\nB\n\n");
+}
+
+int ft_initlists(int ac, char **av, s_list *a, s_list *b)
+{
+    int i;
 
     i = 0;
-    a.top = -1;
-    a.maxsize = -1;
-    b.top = -1;
-    b.maxsize = -1;
-    a.items = malloc(ac * sizeof(int)); //comment securiser un tableau d'int?
-    b.items = malloc(ac * sizeof(int));
+    a->top = -1;
+    b->top = -1;
+    a->items = malloc(ac * sizeof(int)); //comment securiser un tableau d'int?
+    if (a->items == 0)
+        return (-1);
+    b->items = malloc(ac * sizeof(int));
+    if (b->items == 0)
+    {
+        free(a->items);// verifier
+        return (-1);
+    }
     while (av[i])
     {
-        a.maxsize++;
-        a.top++;
-        a.items[i] = ft_atoi(av[i]);
-        printf("%d\n", a.items[i]);
+        a->top++;
+        a->items[i] = ft_atoi(av[i]);
         i++;
     }
-    
-    //printf("\na = %d\nb =%d\n", a.items[a.top], b.items[b.top]);
-    //ft_reverse_rotate(&a);
-    i = 0;
-    printf("\n\nA\n\n");
-    ft_sa(&a);
-    ft_pb(&a, &b);
-    ft_pb(&a, &b);
-    ft_pb(&a, &b);
-    //ft_rr(&a, &b);
-    //ft_rrr(&a, &b);
-    ft_sa(&a);
-    ft_pa(&a, &b);
-    ft_pa(&a, &b);
-    ft_pa(&a, &b);
-    i = a.top;
-    while (i >= 0)
-    {
-        printf("%d\n", a.items[i]);
-        i--;
-    }
-    i = b.top;
-    printf("\n\nB\n\n");
-    while (i >= 0)
-    {
-        printf("%d\n", b.items[i]);
-        i--;
-    }
-    //printf("\na = %d\nb =%d\n", a.items[a.top], b.items[b.top]);
-    //printf("top = %d\n", a.top);
+    ft_print(a, b);
+    return (1);
+}
 
+int ft_check(char **av)
+{
+    int i;
+    int j;
+    
+    
+    i = 0;
+    j = 0;
+    while (av[i])
+    {
+        j = 0;
+        while (av[i][j])
+        {
+            if (j == 0 && av[i][j] == '-')
+                j++;
+            if (!ft_isdigit(av[i][j]))
+                return (0);
+            j++;
+        }
+
+        i++;
+    }
+    return (1);
 }
 
 int main(int ac, char **av)
 {
+    s_list a;
+    s_list b;
     if (ac == 1)
         return (0);
-    ft_initlist(ac - 1, &av[1]);
+    if(!ft_check(&av[1]))
+    {
+        ft_putchar("Erssssror\n");
+        return (1);
+    }
+    if (ft_initlists(ac - 1, &av[1], &a, &b) == -1)
+    {
+        ft_putchar("Error\n");
+        return (1);
+    }
     return (0);
 }
-

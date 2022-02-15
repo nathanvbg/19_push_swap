@@ -1,5 +1,3 @@
-
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -8,12 +6,13 @@
 # include "../libft/libft.h"
 
 typedef struct t_list{
-int maxsize;
 int top;
 int *items;
 } s_list;
 
-void    ft_initlist(int ac, char **av);
+//main.c
+int     ft_initlists(int ac, char **av, s_list *a, s_list *b);
+void    ft_print(s_list *a, s_list *b);
 
 //operations_1.c
 void    ft_sa(s_list *pile);
