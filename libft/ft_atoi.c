@@ -6,7 +6,7 @@
 /*   By: nverbrug <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 13:52:57 by nverbrug          #+#    #+#             */
-/*   Updated: 2022/02/15 16:59:25 by naverbru         ###   ########.fr       */
+/*   Updated: 2022/02/15 17:06:19 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,4 @@ int		ft_atoi(const char *str)
 	if (nbr > 2147483647)
 		return (0);
 	return (nbr * sign);
-}
-
-#include <stdio.h>
-int main()
-{
-	printf("%d\n", ft_atoi("2147483642344349"));
 }

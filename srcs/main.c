@@ -46,6 +46,22 @@ int ft_initlists(int ac, char **av, s_list *a, s_list *b)
     return (1);
 }
 
+int	ft_check_atoi(char **av)
+{
+	long int nbr;
+	int i;
+
+	i = 0;
+	while (av[i])
+	{
+		nbr = ft_atoi(av[i]);
+		if ((nbr == 0) && (ft_strncmp("0", av[i], 3) != 0))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int ft_check(char **av)
 {
     int i;
@@ -65,9 +81,10 @@ int ft_check(char **av)
                 return (0);
             j++;
         }
-
         i++;
     }
+	if(!ft_check_atoi(av))
+		return (0);
     return (1);
 }
 
