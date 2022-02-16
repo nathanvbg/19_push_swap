@@ -31,4 +31,8 @@ void    ft_rra(s_list *a);
 void    ft_rrb(s_list *b);
 void    ft_rrr(s_list *a, s_list *b);
 
+//algo.c
+void    ft_algo(s_list *a, s_list *b);
+void    ft_algo_three(s_list *a);
+
 #endif

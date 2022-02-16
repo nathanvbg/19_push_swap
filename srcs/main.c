@@ -5,19 +5,23 @@ void    ft_print(s_list *a, s_list *b)
     int i;
     i = a->top;
 
+    printf("\n");
     while (i >= 0)
     {
         printf("%d\n", a->items[i]);
         i--;
     }
-    i = b->top;
-    printf("\n\nA\n\n");
-    while (i >= 0)
+    printf("^\nA\n-\n\n");
+    if (b->top > 0)
     {
-        printf("%d\n", b->items[i]);
-        i--;
+        i = b->top;
+        while (i >= 0)
+        {
+            printf("%d\n", b->items[i]);
+            i--;
+        }
+        printf("^\nB\n-\n\n");
     }
-    printf("\n\nB\n\n");
 }
 
 int ft_initlists(int ac, char **av, s_list *a, s_list *b)
@@ -42,7 +46,6 @@ int ft_initlists(int ac, char **av, s_list *a, s_list *b)
         a->items[i] = ft_atoi(av[i]);
         i++;
     }
-    ft_print(a, b);
     return (1);
 }
 
@@ -104,5 +107,6 @@ int main(int ac, char **av)
         ft_putchar("Error\n");
         return (1);
     }
+    ft_algo(&a, &b);
     return (0);
 }
