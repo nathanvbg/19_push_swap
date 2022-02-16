@@ -42,6 +42,11 @@ int main(int ac, char **av)
         ft_putchar("Error\n");
         return (1);
     }
+    if (ft_adjust(&a, &c) == -1)
+    {
+        ft_putchar("Error\n");
+        return (1);
+    }
     ft_print(&c, &a);
     /*
     ft_algo(&a, &b);

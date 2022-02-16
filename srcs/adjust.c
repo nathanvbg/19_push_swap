@@ -7,7 +7,7 @@ int ft_find_smallest(s_list *c, long previous_min)
     long min;
 
     i = 0;
-    j = 0;
+    j = -1;
     min = 2147483648;
     while (i <= c->top)
     {
@@ -21,7 +21,7 @@ int ft_find_smallest(s_list *c, long previous_min)
     return (j);
 }
 
-void    ft_adjust(s_list *a, s_list *c)
+int    ft_adjust(s_list *a, s_list *c)
 {
     int i;
     int j;
@@ -34,9 +34,11 @@ void    ft_adjust(s_list *a, s_list *c)
     while (j <= c->top)
     {
         k = ft_find_smallest(c, previous_min);
-        printf("k = %d\n", k);
+        if (k == -1)
+            return (-1);
         a->items[k] = j + 1;
         previous_min = c->items[k];
         j++;
     }
+    return (0);
 }

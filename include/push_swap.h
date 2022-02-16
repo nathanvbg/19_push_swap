@@ -12,7 +12,10 @@ int *items;
 
 //main.c
 void    ft_print(s_list *a, s_list *b);
-void    ft_adjust(s_list *a, s_list *c);
+
+//adjust.c
+int ft_find_smallest(s_list *c, long previous_min);
+int ft_adjust(s_list *a, s_list *c);
 
 //init.c
 int ft_check(char **av);
