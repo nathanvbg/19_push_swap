@@ -11,8 +11,13 @@ int *items;
 } s_list;
 
 //main.c
-int     ft_initlists(int ac, char **av, s_list *a, s_list *b);
 void    ft_print(s_list *a, s_list *b);
+void    ft_adjust(s_list *a, s_list *c);
+
+//init.c
+int ft_check(char **av);
+int ft_check_atoi(char **av);
+int ft_initlists(int ac, char **av, s_list *a, s_list *b, s_list *c);
 
 //operations_1.c
 void    ft_sa(s_list *pile);

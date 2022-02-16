@@ -1,12 +1,13 @@
 #include "../include/push_swap.h"
 
-int ft_initlists(int ac, char **av, s_list *a, s_list *b)
+int ft_initlists(int ac, char **av, s_list *a, s_list *b, s_list *c)
 {
     int i;
 
     i = 0;
-    a->top = -1;
+
     b->top = -1;
+    c->top = -1;
     a->items = malloc(ac * sizeof(int)); //comment securiser un tableau d'int?
     if (a->items == 0)
         return (-1);
@@ -16,12 +17,22 @@ int ft_initlists(int ac, char **av, s_list *a, s_list *b)
         free(a->items);// verifier
         return (-1);
     }
+    c->items = malloc(ac * sizeof(int));
+    if (c->items == 0)
+    {
+        free(a->items);// verifier
+        free(b->items);
+        return (-1);
+    }
     while (av[i])
     {
-        a->top++;
-        a->items[i] = ft_atoi(av[i]);
+        c->top++;
+        c->items[i] = ft_atoi(av[i]);
         i++;
+        
     }
+    a->top = c->top;
+    ft_adjust(a, c);
     return (1);
 }
 
@@ -42,6 +53,7 @@ int	ft_check_atoi(char **av)
 }
 
 int ft_check(char **av)
+
 {
     int i;
     int j;
@@ -66,3 +78,4 @@ int ft_check(char **av)
 		return (0);
     return (1);
 }
+
