@@ -35,10 +35,10 @@ int    ft_adjust(s_list *a, s_list *c)
     {
         k = ft_find_smallest(c, previous_min);
         if (k == -1)
-            return (-1);
+            return (0);
         a->items[k] = j + 1;
         previous_min = c->items[k];
         j++;
     }
-    return (0);
+    return (1);
 }

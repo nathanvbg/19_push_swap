@@ -47,8 +47,8 @@ void    ft_algo_three(s_list *a)
 
 void    ft_algo(s_list *a, s_list *b)
 {
-    ft_print(a, b);
     if (a->top == 2)
         ft_algo_three(a);
-    ft_print(a, b);
+    if (b->top == 100)
+        b->top++;
 }

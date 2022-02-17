@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-void    ft_print(s_list *c, s_list *a)
+void    ft_print_c(s_list *c)
 {
     int i;
     i = c->top;
@@ -12,16 +12,36 @@ void    ft_print(s_list *c, s_list *a)
         i--;
     }
     printf("^\nC\n-\n\n");
-    if (a->top > 0)
+}
+
+void    ft_print(s_list *a, s_list *b, char *str)
+{
+    int i;
+
+    i = a->top;
+    printf("\n%s\n", str);
+    while (i >= 0)
     {
-        i = a->top;
+        printf("%d\n", a->items[i]);
+        i--;
+    }
+    printf("^\nA\n-\n\n");
+    if (b->top > 0)
+    {
+        i = b->top;
         while (i >= 0)
         {
-            printf("%d\n", a->items[i]);
+            printf("%d\n", b->items[i]);
             i--;
         }
-        printf("^\nA\n-\n\n");
+        printf("^\nB\n-\n\n");
     }
+}
+
+void    ft_free(s_list *a, s_list *b)
+{
+    free(a->items);
+    free(b->items);
 }
 
 int main(int ac, char **av)
@@ -37,19 +57,19 @@ int main(int ac, char **av)
         ft_putchar("Erssssror\n");
         return (1);
     }
-    if (ft_initlists(ac - 1, &av[1], &a, &b, &c) == -1)
+    if (!ft_initlists(ac - 1, &av[1], &a, &b, &c))
     {
         ft_putchar("Error\n");
         return (1);
     }
-    if (ft_adjust(&a, &c) == -1)
+    if (!ft_adjust(&a, &c))
     {
         ft_putchar("Error\n");
         return (1);
     }
-    ft_print(&c, &a);
-    /*
+    ft_print(&a, &b, "avant algo");
     ft_algo(&a, &b);
+    ft_print(&a, &b, "apres algo");
+    ft_free(&a, &b);
     return (0);
-    */
 }

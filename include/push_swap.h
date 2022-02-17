@@ -11,7 +11,9 @@ int *items;
 } s_list;
 
 //main.c
-void    ft_print(s_list *a, s_list *b);
+void    ft_print(s_list *a, s_list *b, char *str);
+void    ft_print_c(s_list *c);
+void    ft_free(s_list *a, s_list *b);
 
 //adjust.c
 int ft_find_smallest(s_list *c, long previous_min);
@@ -21,6 +23,7 @@ int ft_adjust(s_list *a, s_list *c);
 int ft_check(char **av);
 int ft_check_atoi(char **av);
 int ft_initlists(int ac, char **av, s_list *a, s_list *b, s_list *c);
+int ft_malloc(s_list *a, s_list *b, s_list *c, int ac);
 
 //operations_1.c
 void    ft_sa(s_list *pile);

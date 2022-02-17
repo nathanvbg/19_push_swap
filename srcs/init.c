@@ -1,5 +1,26 @@
 #include "../include/push_swap.h"
 
+int ft_malloc(s_list *a, s_list *b, s_list *c, int ac)
+{
+    a->items = malloc(ac * sizeof(int)); //comment securiser un tableau d'int?
+    if (a->items == 0)
+        return (0);
+    b->items = malloc(ac * sizeof(int));
+    if (b->items == 0)
+    {
+        free(a->items);// verifier
+        return (0);
+    }
+    c->items = malloc(ac * sizeof(int));
+    if (c->items == 0)
+    {
+        free(a->items);// verifier
+        free(b->items);
+        return (0);
+    }
+    return (1);
+}
+
 int ft_initlists(int ac, char **av, s_list *a, s_list *b, s_list *c)
 {
     int i;
@@ -8,22 +29,8 @@ int ft_initlists(int ac, char **av, s_list *a, s_list *b, s_list *c)
 
     b->top = -1;
     c->top = -1;
-    a->items = malloc(ac * sizeof(int)); //comment securiser un tableau d'int?
-    if (a->items == 0)
-        return (-1);
-    b->items = malloc(ac * sizeof(int));
-    if (b->items == 0)
-    {
-        free(a->items);// verifier
-        return (-1);
-    }
-    c->items = malloc(ac * sizeof(int));
-    if (c->items == 0)
-    {
-        free(a->items);// verifier
-        free(b->items);
-        return (-1);
-    }
+    if (!ft_malloc(a, b, c, ac))
+        return (0);
     while (av[i])
     {
         c->top++;
@@ -32,6 +39,10 @@ int ft_initlists(int ac, char **av, s_list *a, s_list *b, s_list *c)
         
     }
     a->top = c->top;
+    ft_adjust(a, c);
+    ft_print_c(c);
+    free(c->items);
+
     return (1);
 }
 
@@ -52,12 +63,10 @@ int	ft_check_atoi(char **av)
 }
 
 int ft_check(char **av)
-
 {
     int i;
     int j;
-    
-    
+
     i = 0;
     j = 0;
     while (av[i])
