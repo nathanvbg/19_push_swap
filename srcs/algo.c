@@ -50,7 +50,20 @@ int    ft_find_closest(s_list *a, int max)
         return (j);
 }
 
-void    ft_fillb(s_list *a, s_list *b, int pos)
+/*
+void    ft_sort_b(s_list *b, int nbr)
+{
+    int i;
+
+    i = 0;
+    while (i < b->top)
+    {
+        if (nbr > b->items[i])
+            i++;
+    }
+}
+*/
+void    ft_fill_b(s_list *a, s_list *b, int pos)
 {
     if (pos <= a->top / 2)
     {
@@ -68,9 +81,28 @@ void    ft_fillb(s_list *a, s_list *b, int pos)
             pos++;
         }
     }
+    //ft_sort_b(b, a->items[a->top]);
     ft_pb(a, b);
-    if (b->top == 1000)
-        b->top++;
+}
+
+void    ft_refill_a(s_list *a, s_list *b)
+{
+    int i;
+    
+    i = b->top;
+    while (b->top >= 0)
+    {
+        if (b->items[i] == b->top + 1)
+        {
+            while (i < b->top)
+            {
+                ft_rb(b);
+                i++;
+            }
+            ft_pa(a, b);
+        }
+        i--;
+    }
 }
 
 void    ft_algo_hundred(s_list *a, s_list *b)
@@ -87,14 +119,15 @@ void    ft_algo_hundred(s_list *a, s_list *b)
         {
             pos = ft_find_closest(a, (j * 20)); //si i = 1, on envoit 20 pour ne chercher que les 20 premiers
             //printf("pos = %d\n", pos);
-            ft_fillb(a, b, pos);
+            ft_fill_b(a, b, pos);
             i++;
         }
-        ft_print(a, b, "je teste des trucs");
+        //ft_print(a, b, "je teste des trucs");
         j++;
     }
-    if (b->top == 1000)
-        b->top++;
+    ft_print(a, b, "avant refill a");
+    ft_refill_a(a, b);
+    ft_print(a, b, "apres refill a");
 }
 
 void    ft_algo(s_list *a, s_list *b)
@@ -104,6 +137,4 @@ void    ft_algo(s_list *a, s_list *b)
         ft_algo_three(a);
     if (a->top > 4)
         ft_algo_hundred(a, b);
-    if (b->top == 100)
-        b->top++;
 }
