@@ -40,7 +40,7 @@ int ft_initlists(int ac, char **av, s_list *a, s_list *b, s_list *c)
     }
     a->top = c->top;
     ft_adjust(a, c);
-    ft_print_c(c);
+    //ft_print_c(c);
     free(c->items);
 
     return (1);

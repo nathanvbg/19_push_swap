@@ -125,14 +125,14 @@ void    ft_algo_hundred(s_list *a, s_list *b)
         //ft_print(a, b, "je teste des trucs");
         j++;
     }
-    ft_print(a, b, "avant refill a");
+    //ft_print(a, b, "avant refill a");
     ft_refill_a(a, b);
-    ft_print(a, b, "apres refill a");
+    //ft_print(a, b, "apres refill a");
 }
 
 void    ft_algo(s_list *a, s_list *b)
 {
-    printf("NBR ELEMENTS = %d\n\n", a->top + 1);
+    //printf("NBR ELEMENTS = %d\n\n", a->top + 1);
     if (a->top == 2)
         ft_algo_three(a);
     if (a->top > 4)

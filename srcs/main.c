@@ -61,9 +61,9 @@ int ft_process(char **arg, int ac, s_list *a, s_list *b, s_list *c)
         ft_putchar("Error\n");
         return (0);
     }
-    ft_print(a, b, "avant algo");
+    //ft_print(a, b, "avant algo");
     ft_algo(a, b);
-    ft_print(a, b, "apres algo");
+    //ft_print(a, b, "apres algo");
     ft_free(a, b);
     return (1);
 }
