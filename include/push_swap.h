@@ -45,5 +45,7 @@ void    ft_rrr(s_list *a, s_list *b);
 //algo.c
 void    ft_algo(s_list *a, s_list *b);
 void    ft_algo_three(s_list *a);
+int     ft_find_closest(s_list *a, int max);
+void    ft_fillb(s_list *a, s_list *b, int pos);
 
 #endif

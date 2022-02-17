@@ -26,7 +26,7 @@ void    ft_print(s_list *a, s_list *b, char *str)
         i--;
     }
     printf("^\nA\n-\n\n");
-    if (b->top > 0)
+    if (b->top >= 0)
     {
         i = b->top;
         while (i >= 0)
