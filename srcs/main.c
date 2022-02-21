@@ -1,11 +1,11 @@
 #include "../include/push_swap.h"
 
-void    ft_print_c(s_list *c)
+void    ft_print_c(s_list *c, char *str)
 {
     int i;
     i = c->top;
 
-    printf("\n");
+    printf("\n%s\n", str);
     while (i >= 0)
     {
         printf("%d\n", c->items[i]);
@@ -56,13 +56,7 @@ int ft_process(char **arg, s_list *a, s_list *b, s_list *c)
         ft_putchar("Erroooor\n");
         return (0);
     }
-    //ft_print_c(c);
-    if (!ft_adjust(a, c))
-    {
-        ft_putchar("Errrrrror\n");
-        return (0);
-    }
-    //ft_print(a, b, "avant algo");
+    //ft_print_c(a, "A apres adjust");
     ft_algo(a, b);
     //ft_print(a, b, "apres algo");
     ft_free(a, b);

@@ -12,7 +12,7 @@ int *items;
 
 //main.c
 void    ft_print(s_list *a, s_list *b, char *str);
-void    ft_print_c(s_list *c);
+void    ft_print_c(s_list *c, char *str);
 void    ft_free(s_list *a, s_list *b);
 int ft_process(char **arg, s_list *a, s_list *b, s_list *c);
 

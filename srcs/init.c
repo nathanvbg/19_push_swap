@@ -46,12 +46,9 @@ int ft_initlists(char **av, s_list *a, s_list *b, s_list *c)
         c->top++;
         c->items[ft_size(av) - i - 1] = ft_atoi(av[i]);
         i++;
-        
     }
     a->top = c->top;
-    //ft_print_c(c);
-    ft_adjust(a, c);
-    //ft_print(a, b, "apres adjust");
+    ft_adjust(a, c); //proteger
     free(c->items);
     return (1);
 }

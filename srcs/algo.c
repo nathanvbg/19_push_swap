@@ -85,23 +85,45 @@ void    ft_fill_b(s_list *a, s_list *b, int pos)
     ft_pb(a, b);
 }
 
+void    ft_fill_a(s_list *a, s_list *b, int pos)
+{
+    if (pos <= b->top / 2)
+    {
+        while (pos >= 0)
+        {
+            ft_rrb(b);
+            pos--;
+        }
+    }
+    if (pos > b->top / 2)
+    {
+        while (pos < b->top)
+        {
+            ft_rb(b);
+            pos++;
+        }
+    }
+    //ft_sort_b(b, a->items[a->top]);
+    ft_pa(a, b);
+    //ft_print_c(a, "hello");
+}
+
 void    ft_refill_a(s_list *a, s_list *b)
 {
     int i;
-    
-    i = b->top;
+
+    i = 0;
+    //printf("b->top = %d\n", b->top);
     while (b->top >= 0)
     {
         if (b->items[i] == b->top + 1)
         {
-            while (i < b->top)
-            {
-                ft_rb(b);
-                i++;
-            }
-            ft_pa(a, b);
+            //printf("item[%d] = %d ||| b->top = %d\n", i, b->items[i], b->top);
+            ft_fill_a(a, b, i);
+            i = -1;
         }
-        i--;
+        i++;
+        //ft_print(a, b, "cours");
     }
 }
 
@@ -112,27 +134,25 @@ void    ft_algo_hundred(s_list *a, s_list *b)
     int pos;
 
     i = 1;
-    j = 0;
-    while (j < 5)
+    j = 1;
+    while (j <= 5)
     {
+
         while (i <= j * 20)
         {
-            pos = ft_find_closest(a, (j * 20)); //si i = 1, on envoit 20 pour ne chercher que les 20 premiers
-            //printf("pos = %d\n", pos);
+            pos = ft_find_closest(a, (j * 20));
             ft_fill_b(a, b, pos);
             i++;
         }
-        //ft_print(a, b, "je teste des trucs");
         j++;
     }
-    //ft_print(a, b, "avant refill a");
+    //ft_print(a,b, "before refill");
     ft_refill_a(a, b);
-    //ft_print(a, b, "apres refill a");
+    //ft_print(a,b, "after refill");
 }
 
 void    ft_algo(s_list *a, s_list *b)
 {
-    //printf("NBR ELEMENTS = %d\n\n", a->top + 1);
     if (a->top == 2)
         ft_algo_three(a);
     if (a->top > 4)
