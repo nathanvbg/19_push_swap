@@ -44,21 +44,22 @@ void    ft_free(s_list *a, s_list *b)
     free(b->items);
 }
 
-int ft_process(char **arg, int ac, s_list *a, s_list *b, s_list *c)
+int ft_process(char **arg, s_list *a, s_list *b, s_list *c)
 {
     if(!ft_check(arg))
     {
         ft_putchar("Erssssror\n");
         return (0);
     }
-    if (!ft_initlists(ac - 1, arg, a, b, c))
+    if (!ft_initlists(arg, a, b, c))
     {
-        ft_putchar("Error\n");
+        ft_putchar("Erroooor\n");
         return (0);
     }
+    //ft_print_c(c);
     if (!ft_adjust(a, c))
     {
-        ft_putchar("Error\n");
+        ft_putchar("Errrrrror\n");
         return (0);
     }
     //ft_print(a, b, "avant algo");
@@ -73,19 +74,23 @@ int main(int ac, char **av)
     s_list a;
     s_list b;
     s_list c;
+    int i;
+
+    i = 0;
     char **arg;
 
+    //printf("AARG = %s\n", av[1]);
     if (ac == 1)
         return (0);
     if (ac == 2)
     {
         arg = ft_split(av[1], ' ');
-        if (!ft_process(arg, ac, &a, &b, &c))
+        if (!ft_process(arg, &a, &b, &c))
             return (1);
     }
     else
     {
-        if (!ft_process(&av[1], ac, &a, &b, &c))
+        if (!ft_process(&av[1], &a, &b, &c))
             return (1);
     }
     return (0);

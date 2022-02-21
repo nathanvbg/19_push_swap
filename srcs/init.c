@@ -21,7 +21,17 @@ int ft_malloc(s_list *a, s_list *b, s_list *c, int ac)
     return (1);
 }
 
-int ft_initlists(int ac, char **av, s_list *a, s_list *b, s_list *c)
+int ft_size(char **av)
+{
+    int i;
+
+    i = 0;
+    while (av[i])
+        i++;
+    return (i);
+}
+
+int ft_initlists(char **av, s_list *a, s_list *b, s_list *c)
 {
     int i;
 
@@ -29,20 +39,20 @@ int ft_initlists(int ac, char **av, s_list *a, s_list *b, s_list *c)
 
     b->top = -1;
     c->top = -1;
-    if (!ft_malloc(a, b, c, ac))
+    if (!ft_malloc(a, b, c, ft_size(av)))
         return (0);
     while (av[i])
     {
         c->top++;
-        c->items[i] = ft_atoi(av[i]);
+        c->items[ft_size(av) - i - 1] = ft_atoi(av[i]);
         i++;
         
     }
     a->top = c->top;
-    ft_adjust(a, c);
     //ft_print_c(c);
+    ft_adjust(a, c);
+    //ft_print(a, b, "apres adjust");
     free(c->items);
-
     return (1);
 }
 
@@ -86,4 +96,3 @@ int ft_check(char **av)
 		return (0);
     return (1);
 }
-
