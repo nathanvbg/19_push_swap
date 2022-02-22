@@ -3,6 +3,7 @@ NAME = push_swap
  
 SRC = srcs/adjust.c \
 		srcs/algo.c \
+		srcs/algo_small.c \
 		srcs/init.c \
 		srcs/main.c \
 		srcs/operations_1.c \
