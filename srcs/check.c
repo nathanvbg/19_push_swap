@@ -6,11 +6,29 @@
 /*   By: naverbru <naverbru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:46:54 by naverbru          #+#    #+#             */
-/*   Updated: 2022/02/22 17:07:57 by naverbru         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:36:55 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	ft_check_ordre(t_list *a)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < a->top)
+	{
+		if (a->items[i] > a->items[i + 1])
+			j++;
+		i++;
+	}
+	if (i == j)
+		return (0);
+	return (1);
+}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

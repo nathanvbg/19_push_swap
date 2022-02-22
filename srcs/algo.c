@@ -6,7 +6,7 @@
 /*   By: naverbru <naverbru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:14:19 by naverbru          #+#    #+#             */
-/*   Updated: 2022/02/22 16:02:14 by naverbru         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:15:19 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	ft_find_closest(t_list *a, int max, int part_size)
 	min = max - part_size;
 	i = 0;
 	j = a->top;
-	while (i < a->top / 2)
+	while (i <= a->top / 2)
 	{
 		if ((a->items[i] >= min) && (a->items[i] <= max))
 			break ;
 		i++;
 	}
-	while (j > a->top / 2)
+	while (j >= a->top / 2)
 	{
 		if ((a->items[j] >= min) && (a->items[j] <= max))
 			break ;

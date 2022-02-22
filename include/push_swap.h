@@ -6,7 +6,7 @@
 /*   By: naverbru <naverbru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:10:35 by naverbru          #+#    #+#             */
-/*   Updated: 2022/02/22 16:59:34 by naverbru         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:27:19 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		ft_check(char **av);
 int		ft_check_atoi(char **av);
 int		ft_check_double(char **arg);
 int		ft_strcmp(const char *s1, const char *s2);
+int		ft_check_ordre(t_list *a);
 
 //operations_1.c
 void	ft_sa(t_list *pile);

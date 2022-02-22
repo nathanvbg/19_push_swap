@@ -6,7 +6,7 @@
 /*   By: naverbru <naverbru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:10:54 by naverbru          #+#    #+#             */
-/*   Updated: 2022/02/22 17:05:45 by naverbru         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:26:47 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int	ft_process(char **arg, t_list *a, t_list *b, t_list *c)
 		ft_putchar("Error\n");
 		return (0);
 	}
+	if (!ft_check_ordre(a))
+		return (1);
 	ft_algo(a, b);
 	ft_free(a, b, c);
 	return (1);
