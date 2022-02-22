@@ -96,7 +96,7 @@ void    ft_large_algo(s_list *a, s_list *b, int part, int part_size)
     while (j <= part)
     {
 
-        while (i <= j * part_size)
+        while (i <= j * part_size && a->top >= 0)
         {
             pos = ft_find_closest(a, (j * part_size), part_size);
             ft_fill_b(a, b, pos);
@@ -111,14 +111,16 @@ void    ft_algo(s_list *a, s_list *b)
 {
     if (a->top == 2)
         ft_algo_three(a);
-    if (a->top > 5 && a->top < 100)
+    else if (a->top == 3 || a->top == 4)
+        ft_algo_five(a, b);
+    else if (a->top >= 5 && a->top < 100)
         ft_large_algo(a, b, 5, 20);
-    if (a->top >= 100 && a->top < 500)
+    else if (a->top >= 100 && a->top < 500)
         ft_large_algo(a, b, 10, 50);
-    if (a->top >= 500 && a->top < 1000)
+    else if (a->top >= 500 && a->top < 1000)
         ft_large_algo(a, b, 20, 50);
-    if (a->top >= 1000 && a->top < 10000)
+    else if (a->top >= 1000 && a->top < 10000)
         ft_large_algo(a, b, 100, 100);
-    if (a->top >= 10000 && a->top < 100000)
+    else if (a->top >= 10000 && a->top < 100000)
         ft_large_algo(a, b, 1000, 1000);
 }
