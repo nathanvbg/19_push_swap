@@ -6,7 +6,7 @@
 /*   By: naverbru <naverbru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:49:18 by naverbru          #+#    #+#             */
-/*   Updated: 2022/02/22 16:01:22 by naverbru         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:08:10 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	ft_malloc(t_list *a, t_list *b, t_list *c, int ac)
 {
-	a->items = malloc(ac * sizeof(int)); //comment securiser un tableau d'int?
+	a->items = malloc(ac * sizeof(int));
 	if (a->items == 0)
 		return (0);
 	b->items = malloc(ac * sizeof(int));
 	if (b->items == 0)
 	{
-		free(a->items);// verifier
+		free(a->items);
 		return (0);
 	}
 	c->items = malloc(ac * sizeof(int));
 	if (c->items == 0)
 	{
-		free(a->items);// verifier
+		free(a->items);
 		free(b->items);
 		return (0);
 	}
@@ -59,47 +59,6 @@ int	ft_initlists(char **av, t_list *a, t_list *b, t_list *c)
 		i++;
 	}
 	a->top = c->top;
-	ft_adjust(a, c); //proteger
-	return (1);
-}
-
-int	ft_check_atoi(char **av)
-{
-	long int	nbr;
-	int			i;
-
-	i = 0;
-	while (av[i])
-	{
-		nbr = ft_atoi(av[i]);
-		if ((nbr == 0) && (ft_strncmp("0", av[i], 3) != 0))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	ft_check(char **av)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (av[i])
-	{
-		j = 0;
-		while (av[i][j])
-		{
-			if (j == 0 && (av[i][j] == '-' || av[i][j] == '+'))
-				j++;
-			if (!ft_isdigit(av[i][j]))
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	if (!ft_check_atoi(av))
-		return (0);
+	ft_adjust(a, c);
 	return (1);
 }

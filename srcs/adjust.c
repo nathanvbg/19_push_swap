@@ -6,7 +6,7 @@
 /*   By: naverbru <naverbru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:38:11 by naverbru          #+#    #+#             */
-/*   Updated: 2022/02/22 16:00:24 by naverbru         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:45:32 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int	ft_adjust(t_list *a, t_list *c)
 	while (j <= c->top)
 	{
 		k = ft_find_smallest(c, previous_min);
-        //if (k == -1)
-        //    return (0);
 		a->items[k] = j + 1;
 		previous_min = c->items[k];
 		j++;

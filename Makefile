@@ -5,6 +5,7 @@ SRC = srcs/adjust.c \
 		srcs/algo.c \
 		srcs/algo_small.c \
 		srcs/init.c \
+		srcs/check.c \
 		srcs/main.c \
 		srcs/operations_1.c \
 		srcs/operations_2.c \

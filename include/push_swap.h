@@ -6,7 +6,7 @@
 /*   By: naverbru <naverbru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:10:35 by naverbru          #+#    #+#             */
-/*   Updated: 2022/02/22 16:03:29 by naverbru         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:59:34 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,16 @@ int		ft_find_smallest(t_list *c, long previous_min);
 int		ft_adjust(t_list *a, t_list *c);
 
 //init.c
-int		ft_check(char **av);
-int		ft_check_atoi(char **av);
+
 int		ft_initlists(char **av, t_list *a, t_list *b, t_list *c);
 int		ft_malloc(t_list *a, t_list *b, t_list *c, int ac);
+int		ft_size(char **av);
+
+//check.c
+int		ft_check(char **av);
+int		ft_check_atoi(char **av);
+int		ft_check_double(char **arg);
+int		ft_strcmp(const char *s1, const char *s2);
 
 //operations_1.c
 void	ft_sa(t_list *pile);

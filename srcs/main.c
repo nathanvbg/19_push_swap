@@ -6,7 +6,7 @@
 /*   By: naverbru <naverbru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:10:54 by naverbru          #+#    #+#             */
-/*   Updated: 2022/02/22 16:02:17 by naverbru         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:05:45 by naverbru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,8 @@ int	main(int ac, char **av)
 	t_list	a;
 	t_list	b;
 	t_list	c;
-	int		i;
 	char	**arg;
 
-	i = 0;
 	if (ac == 1)
 		return (0);
 	if (ac == 2)
